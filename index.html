@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Interaktif | Athwal Dayfi Hikari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
+        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%); }
+        
+        /* Animasi Progress Bar - Default Lebar 0 */
+        .progress-bar {
+            width: 0%;
+            transition: width 1.5s cubic-bezier(0.1, 0.5, 0.5, 1);
+        }
+
+        /* Style untuk Accordion Global */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+            padding: 0 1.5rem;
+        }
+        .accordion-active .accordion-content {
+            max-height: 600px; 
+            padding-bottom: 1.5rem;
+            padding-top: 0.5rem;
+        }
+        .arrow-icon { transition: transform 0.3s ease; }
+        .accordion-active .arrow-icon { transform: rotate(180deg); }
+        
+        .accordion-item { transition: all 0.3s ease; }
+        .accordion-item:hover { transform: translateY(-3px); }
+    </style>
+</head>
+<body class="text-slate-800 pb-12">
+
+    <header class="gradient-bg text-white py-16 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <div class="w-32 h-32 bg-slate-400 rounded-full mx-auto mb-4 border-4 border-white/20 shadow-2xl overflow-hidden">
+                <img src="file_00000000cd187206baea96093e24e953.png" alt="Athwal Dayfi Hikari" class="w-low h-low object-cover">
+            </div>
+            <h1 class="text-4xl font-extrabold tracking-tight uppercase">Athwal Dayfi Hikari</h1>
+            <p class="text-blue-200 mt-2 font-medium">Baleendah, Bandung | Pelajar</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6 -mt-10">
+        
+        <div class="space-y-4">
+            <section class="bg-white rounded-2xl shadow-lg border-b-4 border-blue-600 cursor-pointer accordion-item overflow-hidden" onclick="toggleAccordion(this)">
+                <div class="p-5 flex justify-between items-center">
+                    <h2 class="font-bold text-blue-800 flex items-center"><i class="fas fa-user-circle mr-3"></i>Tentang Saya</h2>
+                    <i class="fas fa-chevron-down arrow-icon text-blue-600"></i>
+                </div>
+                <div class="accordion-content text-slate-600 text-sm leading-relaxed">
+                    Saya adalah seorang pelajar yang memiliki minat tinggi untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.
+                </div>
+            </section>
+
+            <section class="bg-white rounded-2xl shadow-lg border-b-4 border-cyan-500 cursor-pointer accordion-item overflow-hidden" id="bahasa-section" onclick="toggleBahasa(this)">
+                <div class="p-5 flex justify-between items-center">
+                    <h2 class="font-bold text-cyan-700 flex items-center"><i class="fas fa-language mr-3"></i>Bahasa</h2>
+                    <i class="fas fa-chevron-down arrow-icon text-cyan-600"></i>
+                </div>
+                <div class="accordion-content space-y-4">
+                    <div>
+                        <div class="flex justify-between text-[10px] font-bold mb-1"><span>INDONESIA</span><span>100%</span></div>
+                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                            <div id="bar-indo" class="progress-bar bg-blue-600 h-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-[10px] font-bold mb-1"><span>SUNDA</span><span>100%</span></div>
+                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                            <div id="bar-sunda" class="progress-bar bg-cyan-500 h-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-[10px] font-bold mb-1"><span>INGGRIS</span><span>20%</span></div>
+                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                            <div id="bar-inggris" class="progress-bar bg-indigo-400 h-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-[10px] font-bold mb-1"><span>JEPANG</span><span>10%</span></div>
+                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                            <div id="bar-jepang" class="progress-bar bg-slate-400 h-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-2xl shadow-lg border-b-4 border-indigo-600 cursor-pointer accordion-item overflow-hidden" onclick="toggleAccordion(this)">
+                <div class="p-5 flex justify-between items-center">
+                    <h2 class="font-bold text-indigo-800 flex items-center"><i class="fas fa-gamepad mr-3"></i>Hobi</h2>
+                    <i class="fas fa-chevron-down arrow-icon text-indigo-600"></i>
+                </div>
+                <div class="accordion-content text-slate-600 text-sm">
+                    <ul class="space-y-1">
+                        <li>• Bermain Game</li>
+                        <li>• Membaca Komik</li>
+                        <li>• Mendengarkan Musik</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div class="md:col-span-2 space-y-4">
+            <section class="bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer accordion-item" onclick="toggleAccordion(this)">
+                <div class="p-6 flex justify-between items-center border-l-8 border-blue-500">
+                    <h2 class="text-xl font-bold flex items-center"><i class="fas fa-graduation-cap mr-3 text-blue-500"></i>Pendidikan</h2>
+                    <i class="fas fa-chevron-down arrow-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <div class="space-y-4 border-l-2 border-slate-100 ml-2 pl-4">
+                        <div>
+                            <h3 class="font-bold">SMA KP BALEENDAH</h3>
+                            <p class="text-sm text-blue-600 italic">2023 - 2026</p>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-700">SMPN 1 CANGKUANG</h3>
+                            <p class="text-xs text-slate-500">Lulus 2023</p>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-700">SDN KARANGSETRA CILUNCAT</h3>
+                            <p class="text-xs text-slate-400">Lulus 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer accordion-item" onclick="toggleAccordion(this)">
+                <div class="p-6 flex justify-between items-center border-l-8 border-emerald-500">
+                    <h2 class="text-xl font-bold flex items-center"><i class="fas fa-address-book mr-3 text-emerald-500"></i>Kontak & Skill</h2>
+                    <i class="fas fa-chevron-down arrow-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-100 px-3 py-1 rounded text-xs font-bold">TIM WORK</span>
+                            <span class="bg-slate-100 px-3 py-1 rounded text-xs font-bold">ADAPTASI</span>
+                            <span class="bg-slate-100 px-3 py-1 rounded text-xs font-bold">FINANCE MINAT</span>
+                        </div>
+                        <p class="text-sm"><i class="fab fa-instagram mr-2"></i> @athwaldayfii</p>
+                        <p class="text-sm"><i class="fas fa-phone mr-2"></i> +62 857-2916-1289</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Fungsi standar untuk accordion lain
+        function toggleAccordion(element) {
+            element.classList.toggle('accordion-active');
+        }
+
+        // Fungsi khusus untuk Bahasa agar animasi bar jalan saat diklik
+        function toggleBahasa(element) {
+            const isActive = element.classList.toggle('accordion-active');
+            
+            // Ambil semua element bar
+            const indo = document.getElementById('bar-indo');
+            const sunda = document.getElementById('bar-sunda');
+            const inggris = document.getElementById('bar-inggris');
+            const jepang = document.getElementById('bar-jepang');
+
+            if (isActive) {
+                // Jika dibuka, set lebar ke target
+                setTimeout(() => {
+                    indo.style.width = "100%";
+                    sunda.style.width = "100%";
+                    inggris.style.width = "20%";
+                    jepang.style.width = "10%";
+                }, 200); // delay dikit biar nunggu accordion buka
+            } else {
+                // Jika ditutup, reset ke 0% agar bisa animasi lagi nanti
+                indo.style.width = "0%";
+                sunda.style.width = "0%";
+                inggris.style.width = "0%";
+                jepang.style.width = "0%";
+            }
+        }
+    </script>
+
+</body>
+                      </html>
